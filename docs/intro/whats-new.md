@@ -18,7 +18,7 @@ As part of AEGP_LayerSuite9, AEGP_GetLayerObjectType can now return AEGP_ObjectT
 
 ---
 
-## What's New In After Effects 2022
+## What's New in After Effects 2022
 
 After Effects 2022 contains the first full public release with Multi-Frame Rendering support. The associated AE Effects SDK released in October 2021 includes one change for increasing the maximum number of PF_Iterate threads.
 
@@ -54,19 +54,19 @@ To gain access to the AE host-side changes for this SDK, you will need to downlo
 
 ---
 
-## What's New In After Effects Beta builds after June 2020
+## What's New in After Effects Beta builds after June 2020
 
 AE (currently only in Beta builds) now supports Multi-Frame rendering. See [Multi-Frame Rendering in AE](../effect-details/multi-frame-rendering-in-ae.md) for more details.
 
 ---
 
-## What's New In CC 2019 (16.0)?
+## What's New in CC 2019 (16.0)?
 
 We've made some changes to how GPU effects are handled. See "GPU Effects Changes" for details.
 
 ---
 
-## What's New In 15.0?
+## What's New in 15.0?
 
 After Effects now supports the *GPU effect rendering* previously supported in Premiere Pro. Note that unknown effects with a match name that includes "ADBE " will be excluded from GPU rendering, so make sure any of your GPU effects have your own custom match name. Effects that support GPU rendering will receive the GPU badge in the Effect panel.
 
@@ -86,7 +86,7 @@ The application font is now Adobe Clean. Previously, the fonts used in After Eff
 
 ---
 
-## What's New In CC 2017.1 (14.2)?
+## What's New in CC 2017.1 (14.2)?
 
 - Layer Params can include Masks and Effects
 
@@ -116,25 +116,25 @@ It should be used along with `AEGP_SetSelection()`.
 
 ---
 
-## What's New In CC 2017 (14.1)?
+## What's New in CC 2017 (14.1)?
 
 Unicode support for [AEGP Item Suite](../aegps/aegp-suites.md#aegp_itemsuite9) and [AEGP Render Queue Item Suite](../aegps/aegp-suites.md#render-queue-item-suite).
 
 ---
 
-## What's New In CC 2017 (14.0)?
+## What's New in CC 2017 (14.0)?
 
 The GLator sample is back! It has been updated to demonstrate proper OpenGL context management in an effect plug-in.
 
 ---
 
-## What's New In CC 2015.3 (13.8)?
+## What's New in CC 2015.3 (13.8)?
 
 PF_OutFlag_I_AM_OBSOLETE is now supported in Premiere Pro. Also, effect custom UI in Premiere Pro now supports high DPI displays, such as Retina Displays.
 
 ---
 
-## What's New In CC 2015 (13.6)?
+## What's New in CC 2015 (13.6)?
 
 New AEGP Item View Suite. This provides a way to get playback time for item view. Only the composition case is implemented in this release. The time passed back should be the playback time of the view when playing and the current (needle) time otherwise.
 
@@ -142,7 +142,7 @@ AEGP_RenderNewItemSoundData() has been reworked and provides functionality simil
 
 ---
 
-## What's New In CC 2015 (13.5.1)?
+## What's New in CC 2015 (13.5.1)?
 
 This release fixes some audio APIs that broke in 13.5 due to threading changes. In 13.5, when called on the UI thread, AEGP_RenderNewItemSoundData() would return A_Err_GENERIC. This restores the functionality when called on the UI thread.
 
@@ -150,7 +150,7 @@ To avoid a deadlock, in PF_Cmd_UPDATE_PARAMS_UI only, AEGP_RenderNewItemSoundDat
 
 ---
 
-## What's New In CC 2015 (13.5)?
+## What's New in CC 2015 (13.5)?
 
 - Separate UI and Render Threads
 
@@ -315,7 +315,7 @@ This APIs are in progress, and should not be used yet.
 
 ---
 
-## What's New In CC 2014.1 (13.1)?
+## What's New in CC 2014.1 (13.1)?
 
 PF_CreateNewAppProgressDialog()
 
@@ -323,7 +323,7 @@ It won't open the dialog unless it detects a slow render. (2 seconds timeout).
 
 ---
 
-## What's New In CC 2014 (13.0)?
+## What's New in CC 2014 (13.0)?
 
 Starting in CC 2014, After Effects will now honor a change to a custom UI height made using [PF_UpdateParamUI](../effect-details/parameter-supervision.md#pf_paramutilsuite3).
 
@@ -340,7 +340,7 @@ The layer render options are specified using the new [AEGP_LayerRenderOptionsSui
 
 ---
 
-## What's New In CC (12.0)?
+## What's New in CC (12.0)?
 
 Effect names can now be up to 47 characters long, up from 31 characters previously.
 
@@ -362,7 +362,7 @@ The behavior for `AEGP_NewPlaceholderFootageWithPath` has been updated, so that 
 
 ---
 
-## What's New In CS6.0.1 (11.0.1)?
+## What's New in CS6.0.1 (11.0.1)?
 
 New in 11.0.1, the AE effect API version has been incremented to 13.3.
 
@@ -376,7 +376,7 @@ The workaround is to simply make the call again. This workaround is no longer ne
 
 ---
 
-## What's New In CS6 (11.0)?
+## What's New in CS6 (11.0)?
 
 We've made several refinements for better parameter UI handling. `PF_PUI_INVISIBLE` parameter UI flag is now supported in After Effects, which is useful if your plug-in needs hidden parameters that affect rendering. Now when a plug-in disables a parameter using [PF_UpdateParamUI](../effect-details/parameter-supervision.md#pf_paramutilsuite3), we now save that state in the UI flags so that the plug-in can check the flag in the future to see if it is disabled. A new flag, `PF_ParamFlag_SKIP_REVEAL_WHEN_UNHIDDEN`, allows a parameter to be unhidden without twirling open any parents and without scrolling the parameter into view in the Effect Controls panel and the Timeline panel.
 
