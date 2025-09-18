@@ -23,7 +23,7 @@ After the break, we explain how to build the sample projects, so keep reading be
 |                        |                                                                                                                                                                                                                               |
 |                        | Unless you have a compelling reason to replace the way After Effects handles 3D rendering, you need never work with this sample.                                                                                              |
 |                        |                                                                                                                                                                                                                               |
-|                        | Artisans appear in Composition > Composition Settings, in the Advanced tab, in the Rendering Plug-in drop-down.                                                                                                               |
+|                        | Artisans appear in Composition > Composition Settings, in the 3D Renderer tab, in the Renderer drop-down.                                                                                                                     |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Easy Cheese            | A keyframer (which shows up on the Animation > Keyframe Assistant submenu), Easy Cheese shows how to manipulate various characteristics of keyframes (in a way that, uncannily, resembles our shipping plug-in, Easy Ease...) |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -81,8 +81,6 @@ After the break, we explain how to build the sample projects, so keep reading be
 |                        |                                                                                                                                                                                                                               |
 |                        | For nostalgia's sake, we're leaving this one sample in C; it's also compatible with many third-party plug-in hosts, due to its reliance on version 3.x API features.                                                          |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| GLator                 | New for CC 2017. Demonstrates proper OpenGL context management in an effect plug-in.                                                                                                                                          |
-+------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Paramarama             | Exercises wayward param types not used in other sample. Premiere Pro compatible.                                                                                                                                              |
 +------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | PathMaster             | Shows how to access paths from within an effect.                                                                                                                                                                              |
@@ -136,13 +134,13 @@ We've combined the sample projects into a single master project, stored in the E
 
 In your IDE, you'll need to change the output folder of your project to build into After Effects' plug-in folder.
 
-For development, we recommend using the following path for macOS: `/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/`
+For development, we recommend using the following path for macOS: `~/Library/Application Support/Adobe/Common/Plug-ins/[version]/MediaCore/`
 
 Version is locked at 7.0 for all CC versions, or CSx for earlier versions.
 
-for example: `/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/`
+for example: `~/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore/`
 
-or: `/Library/Application Support/Adobe/Common/Plug-ins/CS6/MediaCore/`
+or: `~/Library/Application Support/Adobe/Common/Plug-ins/CS6/MediaCore/`
 
 and the following path for Windows: `[Program Files]\Adobe\Common\Plug-ins\[version]\MediaCore\`
 
@@ -152,7 +150,7 @@ or: `C:\Program Files\Adobe\Common\Plug-ins\CS6\MediaCore\`
 
 Note that this Windows path is only recommended for development purposes. Windows installers should follow the guidelines here: [Where Installers Should Put Plug-ins](where-installers-should-put-plug-ins.md).
 
-In Xcode, you can set this path once for all projects in the Xcode Preferences > Locations > Derived Data > Advanced. Under *Build Location* choose *Custom*, and fill in the path.
+In Xcode, you can set this path once for the projects in the Xcode File > Project Settings > Advanced. Under *Build Location* choose *Custom: Absolute*, and fill in the path.
 
 In Visual Studio, for convenience, we have specified the output path for all sample projects using the environment variable AE_PLUGIN_BUILD_DIR. You'll need to set this as a user environment variable for your system. On Windows 7, right-click *My Computer* > *Properties* > and in the left sidebar choose *Advanced System Settings*. In the new dialog, hit the *Environment Variables* button. In the User variables area, create a New variable named AE_PLUGIN_BUILD_DIR, and with the path described above. Log out of Windows and log back in so that the variable will be set.
 
