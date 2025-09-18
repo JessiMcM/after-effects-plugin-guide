@@ -4,7 +4,15 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ---
 
-## What's New In the 25.2 SDK
+## What's New in the 25.6 SDK
+
+### Windows on Arm Support
+
+* The AE SDK now supports building effects for Windows on Arm natively. Adobe as a company is moving forward with native support across many of our products, and beta releases of Windows on Arm native versions of Premiere Pro, After Effects, and Adobe Media Encoder are avaiable. When running the native versions of these applications, only natively compiled effects will work, so it's important to update your effects with Windows on Arm support soon. Please see the [Windows on Arm Support](windows-on-arm-support.md) section for more information.
+
+---
+
+## What's New in the 25.2 SDK
 
 As part of AEGP_LayerSuite9, AEGP_GetLayerObjectType can now return AEGP_ObjectType_3D_MODEL if the object type is a 3D model.
 
