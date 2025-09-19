@@ -26,7 +26,7 @@ nav:
         - Where Installers Should Put Plug-ins: intro/where-installers-should-put-plug-ins.md
         - Localization: intro/localization.md
         - Apple Silicon Support: intro/apple-silicon-support.md
-        - Windows ARM64 Support: intro/windows-on-arm-support.md
+        - Windows on Arm Support: intro/windows-on-arm-support.md
         - Exporting Symbols in Effects: intro/symbol-export.md
         - Building GPU Effects: intro/gpu-build-instructions.md
         - Next Steps: intro/next-steps.md
