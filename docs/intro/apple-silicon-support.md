@@ -17,20 +17,20 @@ Loading plugins on macOS 15+ for debugging also requires an additional signing s
 
 1. Open your plugins Xcode project in 12.2 or above and Xcode will automatically add an Apple Silicon target for you.
 
-![Mac Universal Build](../_static/mac_universal_build.png "Mac Universal Build")
-*Mac Universal Build*
+    ![Mac Universal Build](../_static/mac_universal_build.png "Mac Universal Build")
+    *Mac Universal Build*
 
-1. Tell After Effects what the main entry point is for Apple Silicon builds.
+2. Tell After Effects what the main entry point is for Apple Silicon builds.
 
-> * Find the .r resource file for your plugin.
-> * Add `CodeMacARM64 {"EffectMain"}` next to your existing Intel Mac entry point definition.
->   ```cpp
->   #if defined(AE_OS_MAC)
->     CodeMacARM64 {"EffectMain"},
->     CodeMacIntel64 {"EffectMain"},
->   #endif
->   ```
-> * If for some reason you need different entry points on x64 and ARM just provide a different entry point name and string.
+    > * Find the .r resource file for your plugin.
+    > * Add `CodeMacARM64 {"EffectMain"}` next to your existing Intel Mac entry point definition.
+    >   ```cpp
+    >   #if defined(AE_OS_MAC)
+    >     CodeMacARM64 {"EffectMain"},
+    >     CodeMacIntel64 {"EffectMain"},
+    >   #endif
+    >   ```
+    > * If for some reason you need different entry points on x64 and ARM just provide a different entry point name and string.
 
 3. Compile the Universal binary by building for the Any Mac (Apple Silicon, Intel) Target, or by using Product -> Archive.
 
