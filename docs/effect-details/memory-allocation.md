@@ -19,7 +19,7 @@ Handles passed to you by After Effects are locked for you before you're called, 
 +------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
 | `host_lock_handle`     | Locks a handle.                                                                                          | `PF_LOCK_HANDLE`     |
 |                        |                                                                                                          |                      |
-|                        | <pre lang="cpp">void (*host_lock_handle)(<br/>  PF_Handle pf_handle);</pre>                              |                      |
+|                        | <pre lang="cpp">void * (*host_lock_handle)(<br/>  PF_Handle pf_handle);</pre>                            |                      |
 +------------------------+----------------------------------------------------------------------------------------------------------+----------------------+
 | `host_unlock_handle`   | Unlocks a handle.                                                                                        | `PF_UNLOCK_HANDLE`   |
 |                        |                                                                                                          |                      |
