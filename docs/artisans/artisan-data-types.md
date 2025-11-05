@@ -47,7 +47,7 @@ After Effects is *not* a 3D modeling application. Users work in a responsive mod
 
 ## Registering An Artisan
 
-An Artisan is an AEGP, and has a single entry point. Artisans must also register their own function entry points and have a special callback for this purpose. See `AEGP_RegisterArtisan()` from [AEGP_RegisterSuites5](../aegps/aegp-suites.md#aegp_registersuites5).
+An Artisan is an AEGP, and has a single entry point. Artisans must also register their own function entry points and have a special callback for this purpose. See `AEGP_RegisterArtisan()` from [AEGP_RegisterSuite5](../aegps/aegp-suites.md#aegp_registersuite5).
 
 This tables shows the functions that Artisans can support as defined by `PR_ArtisanEntryPoints`: only `render_func` is required.
 

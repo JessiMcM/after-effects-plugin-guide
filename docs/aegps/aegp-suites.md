@@ -9,7 +9,7 @@ As mentioned earlier, AEGPs do everything through suites. The following suites a
 +---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [Command Suite](#aegp_commandsuite1)                    | Manage your AEGP's menu items. Used in conjunction with the Register Suite.                                                                                   |
 +---------------------------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| [Register Suite](#aegp_registersuites5)                 | Used in conjunction with the [Command Suite](#aegp_commandsuite1) to add functions to menu commands.                                                          |
+| [Register Suite](#aegp_registersuite5)                  | Used in conjunction with the [Command Suite](#aegp_commandsuite1) to add functions to menu commands.                                                          |
 |                                                         |                                                                                                                                                               |
 |                                                         | AEIOs and Artisans must use this suite's functions to indicate to After Effects that they want to receive the appropriate message streams.                    |
 |                                                         |                                                                                                                                                               |
@@ -160,14 +160,14 @@ And of course, unlock it when you're done.
 
 Command Suites allow you to create and handle any menu events.
 
-To add your own menu commands, you must also use [Register Suite](#aegp_registersuites5) to assign handlers to menu events.
+To add your own menu commands, you must also use [Register Suite](#aegp_registersuite5) to assign handlers to menu events.
 
 ### AEGP_CommandSuite1
 
 +-----------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |          Function           |                                                                                                                                                   Purpose                                                                                                                                                   |
 +=============================+=============================================================================================================================================================================================================================================================================================================+
-| `AEGP_GetUniqueCommand`     | Obtain a unique command identifier. Use the [Register Suite](#aegp_registersuites5) to register a handler for the command.                                                                                                                                                                                  |
+| `AEGP_GetUniqueCommand`     | Obtain a unique command identifier. Use the [Register Suite](#aegp_registersuite5) to register a handler for the command.                                                                                                                                                                                   |
 |                             |                                                                                                                                                                                                                                                                                                             |
 |                             | <pre lang="cpp">AEGP_GetUniqueCommand(<br/>  AEGP_Command  \*unique_commandP);</pre>                                                                                                                                                                                                                        |
 |                             |                                                                                                                                                                                                                                                                                                             |
@@ -253,7 +253,7 @@ To add your own menu commands, you must also use [Register Suite](#aegp_register
 
 Register functions for After Effects' use.
 
-### AEGP_RegisterSuites5
+### AEGP_RegisterSuite5
 
 +-----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                Function                 |                                                                                                                                                                                      Purpose                                                                                                                                                                                       |

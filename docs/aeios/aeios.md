@@ -42,7 +42,7 @@ This is also a good way to learn the calling sequence before beginning implement
 
 ## Registering Your AEIO
 
-During your plug-in's entry point function, populate a AEIO_ModuleInfo describing the filetype(s) the AEIO supports, and an AEIO_FunctionBlock structure that points to your file handling functions. For some of these functions, you can rely on After Effects' default behavior by returning AEIO_Err_USE_DFLT_CALLBACK. However, you must still provide a function matching the required signature, that does so. Once you've filled out both these structures, call `AEGP_RegisterIO()` from [AEGP_RegisterSuites5](../aegps/aegp-suites.md#aegp_registersuites5).
+During your plug-in's entry point function, populate a AEIO_ModuleInfo describing the filetype(s) the AEIO supports, and an AEIO_FunctionBlock structure that points to your file handling functions. For some of these functions, you can rely on After Effects' default behavior by returning AEIO_Err_USE_DFLT_CALLBACK. However, you must still provide a function matching the required signature, that does so. Once you've filled out both these structures, call `AEGP_RegisterIO()` from [AEGP_RegisterSuite5](../aegps/aegp-suites.md#aegp_registersuite5).
 
 In the AEIO_ModuleInfo that you pass in to the register call, you provide the file type and description information that After Effects uses in the Import dialog, for the "Files of type" drop-down on Windows, or the Enable drop-down on MacOS. As of CS6, file extensions cannot be more than three characters long, even though we have a few built-in importers with longer extensions.
 

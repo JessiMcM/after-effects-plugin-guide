@@ -14,7 +14,7 @@ For effect plug-ins, all communication with After Effects occurs through a singl
 
 While After Effects *does* call the entry point function designated in the AEGP's PiPL (which is still required), all subsequent communication between After Effects and AEGPs is handled by the hook functions the AEGP registers.
 
-This registration must be performed from within the plug-in's entry function, using the [Register Suite](aegp-suites.md#aegp_registersuites5).
+This registration must be performed from within the plug-in's entry function, using the [Register Suite](aegp-suites.md#aegp_registersuite5).
 
 ---
 
