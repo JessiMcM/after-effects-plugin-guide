@@ -4,6 +4,19 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ---
 
+<!-- TODO: confirm the SDK version label and release date before publishing. -->
+## What's New in the 26.x SDK
+
+### AEGP Guide Suite
+
+* A new `AEGP_GuideSuite` lets plug-ins read and write the guides shown in Composition, Layer, and Footage views. `AEGP_GuideSuite1` covers orientation and pixel position; `AEGP_GuideSuite2` adds percentage positioning, per-guide color, and edge pinning. See [Guides](../aegps/aegp-suites.md#guides) for more information.
+
+### Item View Guide Properties
+
+* `AEGP_ItemViewSuite2` adds getters and setters for the per-view guide options (visible, snap, and locked). See [AEGP_ItemViewSuite2](../aegps/aegp-suites.md#aegp_itemviewsuite2) for more information.
+
+---
+
 ## What's New in the 25.6 SDK
 
 ### Windows on Arm Support
