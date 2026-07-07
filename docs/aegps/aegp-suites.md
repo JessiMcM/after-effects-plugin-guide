@@ -738,33 +738,39 @@ The `AEGP_ItemViewSuite` provides access to the per-view guide display toggles (
     The guide display functions were added to `AEGP_ItemViewSuite` version 2 (`kAEGPItemViewSuiteVersion2`, frozen in After Effects 26.0). `AEGP_GetItemViewPlaybackTime` is unchanged from the prior version.
 
 
-+---------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-|             Function            |                                                             Purpose                                                              |
-+=================================+==================================================================================================================================+
-| `AEGP_GetItemViewGuidesVisible` | Returns whether guides are visible in the view.                                                                                  |
-|                                 |                                                                                                                                  |
-|                                 | <pre lang="cpp">AEGP_GetItemViewGuidesVisible(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean      \*guides_visiblePB);</pre> |
-+---------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| `AEGP_SetItemViewGuidesVisible` | Sets whether guides are visible in the view.                                                                                     |
-|                                 |                                                                                                                                  |
-|                                 | <pre lang="cpp">AEGP_SetItemViewGuidesVisible(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean       guides_visibleB);</pre>   |
-+---------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| `AEGP_GetItemViewGuidesSnap`    | Returns whether snapping to guides is enabled.                                                                                   |
-|                                 |                                                                                                                                  |
-|                                 | <pre lang="cpp">AEGP_GetItemViewGuidesSnap(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean      \*guides_snapPB);</pre>       |
-+---------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| `AEGP_SetItemViewGuidesSnap`    | Sets whether snapping to guides is enabled.                                                                                      |
-|                                 |                                                                                                                                  |
-|                                 | <pre lang="cpp">AEGP_SetItemViewGuidesSnap(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean       guides_snapB);</pre>         |
-+---------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| `AEGP_GetItemViewGuidesLocked`  | Returns whether guides are locked in the view.                                                                                   |
-|                                 |                                                                                                                                  |
-|                                 | <pre lang="cpp">AEGP_GetItemViewGuidesLocked(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean      \*guides_lockedPB);</pre>   |
-+---------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
-| `AEGP_SetItemViewGuidesLocked`  | Sets whether guides are locked in the view.                                                                                      |
-|                                 |                                                                                                                                  |
-|                                 | <pre lang="cpp">AEGP_SetItemViewGuidesLocked(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean       guides_lockedB);</pre>     |
-+---------------------------------+----------------------------------------------------------------------------------------------------------------------------------+
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|             Function            |                                                             Purpose                                                                                                   |
++=================================+=======================================================================================================================================================================+
+| `AEGP_GetItemViewPlaybackTime`  | Returns the view's playback time if previewing is active, otherwise the current associated item time.                                                                 |
+|                                 | `is_currently_previewingPB0` reports whether the returned time is the playback time (`TRUE`) or the item's current time                                               |
+|                                 | (`FALSE`).                                                                                                                                                            |
+|                                 |                                                                                                                                                                       |
+|                                 | <pre lang="cpp">AEGP_GetItemViewPlaybackTime(<br/>   AEGP_ItemViewP  item_viewP,<br/>  A_Boolean   \*is_currently_previewingPB0,<br/>  A_Time   \*curr_timePT);</pre> |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_GetItemViewGuidesVisible` | Returns whether guides are visible in the view.                                                                                                                       |
+|                                 |                                                                                                                                                                       |
+|                                 | <pre lang="cpp">AEGP_GetItemViewGuidesVisible(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean      \*guides_visiblePB);</pre>                                      |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_SetItemViewGuidesVisible` | Sets whether guides are visible in the view.                                                                                                                          |
+|                                 |                                                                                                                                                                       |
+|                                 | <pre lang="cpp">AEGP_SetItemViewGuidesVisible(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean       guides_visibleB);</pre>                                        |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_GetItemViewGuidesSnap`    | Returns whether snapping to guides is enabled.                                                                                                                        |
+|                                 |                                                                                                                                                                       |
+|                                 | <pre lang="cpp">AEGP_GetItemViewGuidesSnap(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean      \*guides_snapPB);</pre>                                            |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_SetItemViewGuidesSnap`    | Sets whether snapping to guides is enabled.                                                                                                                           |
+|                                 |                                                                                                                                                                       |
+|                                 | <pre lang="cpp">AEGP_SetItemViewGuidesSnap(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean       guides_snapB);</pre>                                              |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_GetItemViewGuidesLocked`  | Returns whether guides are locked in the view.                                                                                                                        |
+|                                 |                                                                                                                                                                       |
+|                                 | <pre lang="cpp">AEGP_GetItemViewGuidesLocked(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean      \*guides_lockedPB);</pre>                                        |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_SetItemViewGuidesLocked`  | Sets whether guides are locked in the view.                                                                                                                           |
+|                                 |                                                                                                                                                                       |
+|                                 | <pre lang="cpp">AEGP_SetItemViewGuidesLocked(<br/>  AEGP_ItemViewP  item_viewP,<br/>  A_Boolean       guides_lockedB);</pre>                                          |
++---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 ---
 
