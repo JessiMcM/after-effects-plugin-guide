@@ -21,6 +21,19 @@ If this is your first time developing an After Effects plug-in, you can skip the
 * [AEGP_CompSuite](../aegps/aegp-suites.md#aegp_compsuite13) is now at version 13, adding a new function, `AEGP_CreateParametricMeshLayerInComp`, to create a parametric mesh layer (cube, sphere, plane, torus, cone, or cylinder) directly in a composition.
 * `AEGP_GetLayerObjectType` (in [AEGP_LayerSuite9](../aegps/aegp-suites.md#aegp_layersuite9)) can now return `AEGP_ObjectType_3D_PARAMETRIC_MESH` if the object type is a parametric mesh.
 
+<div style="margin-top: 3rem;"></div>
+
+!!! note
+    The following features apply to Premiere Pro Beta only, starting with version 27.0. It does not currently apply to After Effects, though After Effects may adopt it in the future.
+
+### Search Keywords And Description
+
+* Effects can now declare search keywords and a description through two new PiPL properties, `AE_Effect_Search_Keywords` and `AE_Effect_Description` (or via the `PF_REGISTER_EFFECT_EXT3` registration macro). Keywords make your effect discoverable in the Effects panel search, and the description is shown in the Effects Manager. See [PiPL Resources](pipl-resources.md#search-keywords-and-description) for details.
+
+### Effects Panel Preview Media
+
+* Third-party effects can now ship their own thumbnail and hover-preview video for display in the host's Effects panel. See [Effect Preview Media (Effects Panel)](../effect-details/effect-preview-media.md) for the expected file locations and formats.
+
 ---
 
 ## What's New in the 25.6 SDK
