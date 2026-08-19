@@ -108,7 +108,7 @@ A new entry point has been defined, to allow effects to register basic informati
 
 The effect sample projects have been updated to use this approach, while maintaining the PiPL for backwards compatibility.
 
-`AEGP_StreamSuite` is now at version 5, where [AEGP_GetExpression()](../aegps/aegp-suites.md#aegp_streamsuite5) and [AEGP_SetExpression()](../aegps/aegp-suites.md#aegp_streamsuite5) have been upgraded to support Unicode.
+`AEGP_StreamSuite` is now at version 5, where [AEGP_GetExpression()](../aegps/aegp-suites.md#aegp_streamsuite7) and [AEGP_SetExpression()](../aegps/aegp-suites.md#aegp_streamsuite7) have been upgraded to support Unicode.
 
 `PF_AdvTimeSuite` is now at version 4, with a new call [PF_TimeCountFrames()](../effect-details/useful-utility-functions.md#pf_advtimesuite4), that returns the index of the frame in the current comp.
 
@@ -422,7 +422,7 @@ Effects that provide custom UI can now receive `PF_Event_MOUSE_EXITED`, to gain 
 
 `PF_GET_PLATFORM_DATA` now has new selectors for getting the wide character path of the executable and resource file: `PF_PlatData_EXE_FILE_PATH_W` and `PF_PlatData_RES_FILE_PATH_W`. The previous non-wide selectors are now deprecated.
 
-3D is a major theme of AE CS6. A new `AEGP_LayerFlag_ENVIRONMENT_LAYER` has been added. Many new [layer streams](../aegps/aegp-suites.md#aegp_streamsuite5) were added.
+3D is a major theme of AE CS6. A new `AEGP_LayerFlag_ENVIRONMENT_LAYER` has been added. Many new [layer streams](../aegps/aegp-suites.md#aegp_streamsuite7) were added.
 
 Additionally, `AEGP_LayerStream_SPECULAR_COEFF` was renamed to `AEGP_LayerStream_SPECULAR_INTENSITY`, `AEGP_LayerStream_SHININESS_COEFF` was renamed to `AEGP_LayerStream_SPECULAR_SHININESS`, and `AEGP_LayerStream_METAL_COEFF` was renamed to just `AEGP_LayerStream_METAL`.
 

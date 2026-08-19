@@ -653,7 +653,7 @@ typedef struct {
 ### AEGP_GuideSuite2
 
 !!! note
-    Suite version 2 (`kAEGPGuideSuiteVersion2`), frozen in After Effects 26.2. The base functions were introduced in `AEGP_GuideSuite1` (frozen in After Effects 26.0) and are re-exposed here unchanged; the extended `*2` functions are new in version 2.
+    Suite version 2 (`kAEGPGuideSuiteVersion2`), available in After Effects 26.2 and later. The base functions were introduced in `AEGP_GuideSuite1` (available in After Effects 26.0 and later) and are re-exposed here unchanged; the extended `*2` functions are new in version 2.
 
 The `*2` functions add a position type (pixel or percentage), a per-guide color, and a pinned flag (pin to the opposite edge - bottom for horizontal guides, right for vertical guides). Position clamping and non-finite rejection apply as described above.
 
@@ -735,7 +735,7 @@ The `AEGP_ItemViewSuite` provides access to the per-view guide display toggles (
 ### AEGP_ItemViewSuite2
 
 !!! note
-    The guide display functions were added to `AEGP_ItemViewSuite` version 2 (`kAEGPItemViewSuiteVersion2`, frozen in After Effects 26.0). `AEGP_GetItemViewPlaybackTime` is unchanged from the prior version.
+    The guide display functions were added to `AEGP_ItemViewSuite` version 2 (`kAEGPItemViewSuiteVersion2`, available in After Effects 26.0 and later). `AEGP_GetItemViewPlaybackTime` is unchanged from the prior version.
 
 
 +---------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1644,7 +1644,7 @@ If Foobarocity is applied to a layer twice, there will be two distinct `AEGP_Eff
 |                                       |                                                                                                                                                                                                                                            |
 |                                       | Do not use the value(s) in the ParamDef returned by this function (Use `AEGP_GetNewStreamValue()` instead); it's provided so AEGPs can access parameter defaults, checkbox names, and pop-up strings.                                      |
 |                                       |                                                                                                                                                                                                                                            |
-|                                       | Use `AEGP_GetEffectNumParamStreams()` from [AEGP_StreamSuite5](#aegp_streamsuite5) to get the stream count, useful for determining the maximum `param_index`. The last parameter is optional.                                              |
+|                                       | Use `AEGP_GetEffectNumParamStreams()` from [AEGP_StreamSuite7](#aegp_streamsuite7) to get the stream count, useful for determining the maximum `param_index`. The last parameter is optional.                                              |
 |                                       |                                                                                                                                                                                                                                            |
 |                                       | <pre lang="cpp">AEGP_GetEffectParamUnionByIndex(<br/>  AEGP_PluginID     aegp_plugin_id,<br/>  AEGP_EffectRefH   effectH,<br/>  PF_ParamIndex     param_index,<br/>  PF_ParamType      \*param_typeP<br/>  PF_ParamDefUnion  \*uP0);</pre> |
 +---------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1787,7 +1787,7 @@ A stream, once acquired, represents a value which may change over time. Not all 
 
 There are two ways to access the value of a stream. If the stream has keyframes, you can use the [Working With Keyframes](#working-with-keyframes). The values provided won't reflect the influence of expressions. Note: In any expression, the current keyframed value is always available as the variable value.
 
-You can also use `AEGP_GetNewStreamValue` from [AEGP_StreamSuite5](#aegp_streamsuite5), which samples the value of the stream at a particular time. For streams without expressions or keyframes, the time parameter is meaningless, and the function returns what essentially is the constant value of the stream. Use `AEGP_SetStreamValue` (which doesn't take a time as a parameter) to set these streams.
+You can also use `AEGP_GetNewStreamValue` from [AEGP_StreamSuite7](#aegp_streamsuite7), which samples the value of the stream at a particular time. For streams without expressions or keyframes, the time parameter is meaningless, and the function returns what essentially is the constant value of the stream. Use `AEGP_SetStreamValue` (which doesn't take a time as a parameter) to set these streams.
 
 Many StreamSuite functions populate a StreamH, which your AEGP must dispose. when done. After Effects allocates and passes you a copy of the values, not a direct handle to the original value. `AEGP_GetNewLayerStream()` is restricted to streams for which no memory allocation is required to access their values.
 
@@ -1827,7 +1827,7 @@ Use `IsStreamLegal` to allow you to determine if that stream type is offered on 
 
 Since a layer can have multiple masks, access the masks using `AEGP_GetLayerMaskByIndex` from [AEGP_MaskSuite6](#aegp_masksuite6).
 
-Masks don't have streams like layers do; they get their own enumeration. Access their streams using `AEGP_GetNewMaskStream` from [AEGP_StreamSuite5](#aegp_streamsuite5).
+Masks don't have streams like layers do; they get their own enumeration. Access their streams using `AEGP_GetNewMaskStream` from [AEGP_StreamSuite7](#aegp_streamsuite7).
 
 ---
 
@@ -1835,7 +1835,7 @@ Masks don't have streams like layers do; they get their own enumeration. Access 
 
 They can have a variable number of streams/parameters, and the order and definition of them is not known when the AEGP is written.
 
-Therefore we cannot offer an enum for selecting them, and instead you must get them by index, hence `GetNewEffectStreamByIndex` from [AEGP_StreamSuite5](#aegp_streamsuite5).
+Therefore we cannot offer an enum for selecting them, and instead you must get them by index, hence `GetNewEffectStreamByIndex` from [AEGP_StreamSuite7](#aegp_streamsuite7).
 
 ---
 
@@ -1843,7 +1843,10 @@ Therefore we cannot offer an enum for selecting them, and instead you must get t
 
 Access and manipulate the values of a layer's streams. For paint and text streams, use [Dynamic Streams](#aegp_dynamicstreamsuite4) instead.
 
-### AEGP_StreamSuite5
+### AEGP_StreamSuite7
+
+!!! note
+    Suite version 7. Version 6 (available in After Effects 22.5 and later) added `AEGP_GetUniqueStreamID`; version 7 adds independent get/set of the render stage of a `PF_Param_LAYER` stream (the `AEGP_LayerParamStage` accessors at the end of this section). All earlier functions are unchanged, so acquiring `AEGP_StreamSuite7` gives you the whole API.
 
 +----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |             Function             |                                                                                                                                                   Purpose                                                                                                                                                   |
@@ -2066,6 +2069,55 @@ Access and manipulate the values of a layer's streams. For paint and text stream
 |                                  | <pre lang="cpp">AEGP_DuplicateStreamRef(<br/>  AEGP_PluginID    aegp_plugin_id,<br/>  AEGP_StreamRefH  streamH,<br/>  AEGP_StreamRefH  \*dup_streamPH);</pre>                                                                                                                                               |
 +----------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
+The following function was added after version 5:
+
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Function                                 | Purpose                                                                                                                                                                                                                                                                                                     |
++==========================================+=============================================================================================================================================================================================================================================================================================================+
+| `AEGP_GetUniqueStreamID`                 | New in version 6 (available in After Effects 22.5 and later). Returns a session-unique numeric ID for the stream referenced by `streamH`.                                                                                                                                                                   |
+|                                          |                                                                                                                                                                                                                                                                                                             |
+|                                          | <pre lang="cpp">AEGP_GetUniqueStreamID(<br/>  AEGP_StreamRefH  streamH,<br/>  A_long           \*outIDP);</pre>                                                                                                                                                                                             |
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Version 7 adds independent access to the *render stage* of a `PF_Param_LAYER` stream — the point in the source layer's render pipeline at which its output is sampled. Such a stream carries two independent values: the source layer (`AEGP_StreamValue2::layer_id`) and the render stage, an `AEGP_LayerParamStage`:
+
+```cpp
+enum {
+    AEGP_LayerParamStage_SOURCE      = 0,   // source layer pixels, before masks and effects (default)
+    AEGP_LayerParamStage_ONLY_MASKS  = -2,  // source layer with masks applied, effects skipped
+    AEGP_LayerParamStage_ALL_EFFECTS = -1   // source layer with masks and all effects applied
+    // 1..N - render the source layer through effect index N (1-based)
+};
+typedef A_long AEGP_LayerParamStage;
+```
+
+!!! note
+    All five functions below require `streamH` to be a `PF_Param_LAYER` stream and return `Err_PARAMETER` otherwise. Stage values need no disposal; any `AEGP_StreamValue2` output must be freed with `AEGP_DisposeStreamValue`.
+
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Function                                 | Purpose                                                                                                                                                                                                                                                                                                     |
++==========================================+=============================================================================================================================================================================================================================================================================================================+
+| `AEGP_GetStreamLayerParamStageValue`     | Returns the current render stage of a `PF_Param_LAYER` stream.                                                                                                                                                                                                                                              |
+|                                          |                                                                                                                                                                                                                                                                                                             |
+|                                          | <pre lang="cpp">AEGP_GetStreamLayerParamStageValue(<br/>  AEGP_PluginID          aegp_plugin_id,<br/>  AEGP_StreamRefH        streamH,<br/>  AEGP_LayerParamStage   \*stage_outP);</pre>                                                                                                                    |
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_SetStreamLayerParamStageValue`     | Sets the render stage without changing the source layer.                                                                                                                                                                                                                                                    |
+|                                          |                                                                                                                                                                                                                                                                                                             |
+|                                          | <pre lang="cpp">AEGP_SetStreamLayerParamStageValue(<br/>  AEGP_PluginID         aegp_plugin_id,<br/>  AEGP_StreamRefH       streamH,<br/>  AEGP_LayerParamStage  stage);</pre>                                                                                                                              |
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_GetStreamLayerParamAndStageValue`  | Returns both the source layer and the render stage in one call. Dispose `valueP` with `AEGP_DisposeStreamValue`.                                                                                                                                                                                            |
+|                                          |                                                                                                                                                                                                                                                                                                             |
+|                                          | <pre lang="cpp">AEGP_GetStreamLayerParamAndStageValue(<br/>  AEGP_PluginID          aegp_plugin_id,<br/>  AEGP_StreamRefH        streamH,<br/>  AEGP_StreamValue2      \*valueP,<br/>  AEGP_LayerParamStage   \*stage_outP);</pre>                                                                          |
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_SetStreamLayerParamAndStageValue`  | Sets both the source layer and the render stage atomically, as a single undo step.                                                                                                                                                                                                                          |
+|                                          |                                                                                                                                                                                                                                                                                                             |
+|                                          | <pre lang="cpp">AEGP_SetStreamLayerParamAndStageValue(<br/>  AEGP_PluginID         aegp_plugin_id,<br/>  AEGP_StreamRefH       streamH,<br/>  AEGP_StreamValue2     \*valueP,<br/>  AEGP_LayerParamStage  stage);</pre>                                                                                     |
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| `AEGP_GetStreamInputStageCycleSafeLimit` | Returns the highest stage value that will not introduce a render cycle, given the current project state. Re-query before each use, as the result changes when effects are added, removed, or reordered, or when the source layer changes. `AEGP_LayerParamStage_SOURCE` (0) is always safe.                 |
+|                                          |                                                                                                                                                                                                                                                                                                             |
+|                                          | <pre lang="cpp">AEGP_GetStreamInputStageCycleSafeLimit(<br/>  AEGP_PluginID          aegp_plugin_id,<br/>  AEGP_StreamRefH        streamH,<br/>  AEGP_LayerParamStage   \*max_stage_outP);</pre>                                                                                                            |
++------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
 ---
 
 ## Dynamic Streams
@@ -2206,7 +2258,7 @@ Also note that, often, you can simply use [Stream Suite](#stream-suite) calls to
 +-----------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | `AEGP_GetMatchName`               | Retrieves the match name for the specified `AEGP_StreamRefH`.                                                                                                                                                 |
 |                                   |                                                                                                                                                                                                               |
-|                                   | Note that this may differ from the display name, which can be retrieves using `AEGP_GetStreamName`, in [AEGP_StreamSuite5](#aegp_streamsuite5).                                                               |
+|                                   | Note that this may differ from the display name, which can be retrieves using `AEGP_GetStreamName`, in [AEGP_StreamSuite7](#aegp_streamsuite7).                                                               |
 |                                   |                                                                                                                                                                                                               |
 |                                   | `nameZ` can be up to `AEGP_MAX_STREAM_MATCH_NAME_SIZE` in length.                                                                                                                                             |
 |                                   |                                                                                                                                                                                                               |
