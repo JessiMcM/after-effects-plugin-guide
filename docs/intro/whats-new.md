@@ -5,7 +5,7 @@ If this is your first time developing an After Effects plug-in, you can skip the
 ---
 
 <!-- TODO: confirm the SDK version label and release date before publishing. -->
-## What's New in the 26.x SDK
+## What's New in the 26.5 SDK
 
 ### AEGP Guide Suite
 
@@ -14,6 +14,12 @@ If this is your first time developing an After Effects plug-in, you can skip the
 ### Item View Guide Properties
 
 * `AEGP_ItemViewSuite2` adds getters and setters for the per-view guide options (visible, snap, and locked). See [AEGP_ItemViewSuite2](../aegps/aegp-suites.md#aegp_itemviewsuite2) for more information.
+
+
+### Parametric Mesh Layers
+
+* [AEGP_CompSuite](../aegps/aegp-suites.md#aegp_compsuite13) is now at version 13, adding a new function, `AEGP_CreateParametricMeshLayerInComp`, to create a parametric mesh layer (cube, sphere, plane, torus, cone, or cylinder) directly in a composition.
+* `AEGP_GetLayerObjectType` (in [AEGP_LayerSuite9](../aegps/aegp-suites.md#aegp_layersuite9)) can now return `AEGP_ObjectType_3D_PARAMETRIC_MESH` if the object type is a parametric mesh.
 
 ---
 
@@ -124,7 +130,7 @@ As this is a user-facing option, the design is intended to be transparent to the
 PF_AdvTimeSuite is now at version 3, providing a revised [PF_GetTimeDisplayPref()](../effect-details/useful-utility-functions.md#pf_advtimesuite4) call that uses a revised `PF_TimeDisplayPrefVersion` parameter, that supports higher frame rates.
 The previous version 2 of the call can now return an error if there is a problem with the values exceeding the range supported by the structure.
 
-Comp Suite is now at version 11, with a new call, [AEGP_ReorderCompSelection()](../aegps/aegp-suites.md#aegp_compsuite11), to move a selection to a certain layer index.
+Comp Suite is now at version 11, with a new call, [AEGP_ReorderCompSelection()](../aegps/aegp-suites.md#aegp_compsuite13), to move a selection to a certain layer index.
 It should be used along with `AEGP_SetSelection()`.
 
 ---
