@@ -4,7 +4,6 @@ If this is your first time developing an After Effects plug-in, you can skip the
 
 ---
 
-<!-- TODO: confirm the SDK version label and release date before publishing. -->
 ## What's New in the 26.5 SDK
 
 ### AEGP Guide Suite
