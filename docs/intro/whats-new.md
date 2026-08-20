@@ -20,6 +20,10 @@ If this is your first time developing an After Effects plug-in, you can skip the
 * [AEGP_CompSuite](../aegps/aegp-suites.md#aegp_compsuite13) is now at version 13, adding a new function, `AEGP_CreateParametricMeshLayerInComp`, to create a parametric mesh layer (cube, sphere, plane, torus, cone, or cylinder) directly in a composition.
 * `AEGP_GetLayerObjectType` (in [AEGP_LayerSuite9](../aegps/aegp-suites.md#aegp_layersuite9)) can now return `AEGP_ObjectType_3D_PARAMETRIC_MESH` if the object type is a parametric mesh.
 
+### Stream Suite
+
+* [AEGP_StreamSuite](../aegps/aegp-suites.md#aegp_streamsuite7) is now at version 7, adding independent get/set of the render stage of a `PF_Param_LAYER` stream — sampling the source layer before masks, after masks, or through a specific effect. See [AEGP_StreamSuite7](../aegps/aegp-suites.md#aegp_streamsuite7) for more information.
+
 <div style="margin-top: 3rem;"></div>
 
 !!! note
